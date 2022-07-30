@@ -3,8 +3,9 @@ import Header from "../components/Header";
 import PackingMachines from "../components/PackingMachines";
 import Sidebar from "../components/Sidebar";
 import Slideshow from "../components/Slideshow";
-import db from "../firebase";
-import { getDocs, collection } from "firebase/firestore";
+import FoodProductionLine from "../components/FoodProductionLine";
+import lineStyles from "../styles/productionline.module.css";
+import FoodEquipments from "../components/FoodEquipments";
 import {
   packingMachineData,
   ProductionLineData,
@@ -12,11 +13,6 @@ import {
   CosmeticMachineData,
   BlockMachineData,
 } from "../lib/getData";
-import FoodProductionLine from "../components/FoodProductionLine";
-import lineStyles from "../styles/productionline.module.css";
-import FoodEquipments from "../components/FoodEquipments";
-import CosmeticMachines from "../components/CosmeticMachines";
-import BlockMachine from "../components/BlockMachine";
 
 export async function getStaticProps() {
   var packingMachine = await packingMachineData();
@@ -36,7 +32,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({
+export default function allPackingMachines({
   packingMachine,
   productionLine,
   foodEquipment,
@@ -101,10 +97,10 @@ export default function Home({
         blockMachine={blockMachine}
       />
       <div className="flex">
-        <div className="lg:w-[20%]">
+        <div className="md:w-[20%]">
           <Sidebar />
         </div>
-        <div className="lg:w-[80%] w-[100%]">
+        <div className="md:w-[80%] w-[100%]">
           {giveSearchBar()}
           <Slideshow />
           <PackingMachines machineData={packingMachine} />
@@ -136,44 +132,6 @@ export default function Home({
                   key={equipment.id}
                   data={equipment.data}
                   id={equipment.id}
-                />
-              ))}
-            </div>
-          </div>
-          <div className={`cosmeticMachines m-[40px]`}>
-            <h2
-              className={`bg-transparent pr-[20px] pl-[72px] text-[35px] text-[#f74258] font-[600]`}
-            >
-              Cosmetic Products Producing Plant
-            </h2>
-            <div
-              className={`machineDisplay bg-transparent flex flex-wrap justify-center`}
-            >
-              {cosmeticMachine.map((machine) => (
-                <CosmeticMachines
-                  key={machine.id}
-                  name={machine.data.name}
-                  image={machine.data.image1}
-                  id={machine.id}
-                />
-              ))}
-            </div>
-          </div>
-          <div className={`cosmeticMachines m-[40px]`}>
-            <h2
-              className={`bg-transparent pr-[20px] pl-[72px] text-[35px] text-[#f74258] font-[600]`}
-            >
-              Block Machines
-            </h2>
-            <div
-              className={`machineDisplay bg-transparent flex flex-wrap justify-center`}
-            >
-              {blockMachine.map((machine) => (
-                <BlockMachine
-                  key={machine.id}
-                  name={machine.data.name}
-                  image={machine.data.image1}
-                  id={machine.id}
                 />
               ))}
             </div>

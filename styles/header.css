@@ -115,6 +115,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
 }
 
 .menu-wrap .menu > div {
@@ -153,4 +154,68 @@
   color: #fff;
   font-size: 1.5rem;
   padding: 1rem;
+}
+
+.searchDivHtml {
+  width: 400px;
+  z-index: 30;
+  top: 55px;
+  left: 55px;
+  position: fixed;
+  height: auto;
+  max-height: 200px;
+  overflow: scroll;
+  visibility: hidden;
+  border-radius: 0 0 10px 10px;
+  background-color: white;
+}
+
+.searchDivHtml:focus {
+  visibility: visible;
+}
+
+.searchDivHtml > a > div {
+  display: flex;
+  z-index: 30;
+  padding: 0 10px;
+  background-color: white;
+}
+
+.searchDivHtml > a > div > p {
+  width: 75%;
+  z-index: inherit;
+  background-color: white;
+}
+.searchDivHtml > a > div > img {
+  height: 35px;
+  z-index: inherit;
+  background-color: white;
+}
+
+.menu {
+  background-color: transparent;
+}
+
+.menu > div > div {
+  background-color: transparent;
+}
+
+.menu > div > div > ul {
+  background-color: transparent;
+}
+
+.menu > div > div > ul > li {
+  background-color: transparent;
+}
+
+.menu > div > div > ul > li > span > img {
+  background-color: transparent;
+}
+
+.menu > div > div > a {
+  background-color: transparent;
+}
+
+.menu > div > div > ul > a > li {
+  background-color: transparent;
 }

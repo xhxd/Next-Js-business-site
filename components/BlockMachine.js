@@ -1,9 +1,8 @@
-import Image from "next/image";
 import styles from "../styles/packingMachine.module.css";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-const PackingMachine = ({ image, name, id }) => {
+function BlockMachine({ name, image, id }) {
   const saveMachine = (machineID) => {
     console.log(machineID);
 
@@ -12,13 +11,13 @@ const PackingMachine = ({ image, name, id }) => {
     var machines = [];
     var presentMachines = [];
 
-    console.log(localStorage.getItem("packingMachine"));
-    if (localStorage.getItem("packingMachine") == null) {
+    console.log(localStorage.getItem("blockMachine"));
+    if (localStorage.getItem("blockMachine") == null) {
       machines = [];
       machines.push(machineID);
-      localStorage.setItem("packingMachine", JSON.stringify(machines));
+      localStorage.setItem("blockMachine", JSON.stringify(machines));
     } else {
-      presentMachines = JSON.parse(localStorage.getItem("packingMachine"));
+      presentMachines = JSON.parse(localStorage.getItem("blockMachine"));
       console.log(presentMachines);
 
       const truthVerifier = (element) => element == machineID;
@@ -30,13 +29,14 @@ const PackingMachine = ({ image, name, id }) => {
         return;
       } else {
         presentMachines.push(machineID);
-        localStorage.setItem("packingMachine", JSON.stringify(presentMachines));
+        localStorage.setItem("blockMachine", JSON.stringify(presentMachines));
       }
     }
   };
+
   return (
     <div className={styles.product}>
-      <Link href={`/packingmachines/${id}`}>
+      <Link href={`/blockmachine/${id}`}>
         <a>
           <div className={styles.productDetails}>
             <div className={styles.productImage}>
@@ -50,7 +50,12 @@ const PackingMachine = ({ image, name, id }) => {
           </div>
         </a>
       </Link>
-      <div className={styles.productButton} onClick={() => saveMachine(id)}>
+      <div
+        className={styles.productButton}
+        onClick={() => {
+          saveMachine(id);
+        }}
+      >
         <div className={styles.buttonIcon}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +75,6 @@ const PackingMachine = ({ image, name, id }) => {
       </div>
     </div>
   );
-};
+}
 
-export default PackingMachine;
+export default BlockMachine;

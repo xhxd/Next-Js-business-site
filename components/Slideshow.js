@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import image1 from "../public/images/slideshowImage1.jpg";
 import image2 from "../public/images/slideshowImage2.jpg";
-import image3 from "../public/images/slideshowImage3.jpg";
+import image3 from "../public/images/slideshowImage4.jpeg";
 import Image from "next/image";
 import slideStyle from "../styles/slideshow.module.css";
 
@@ -11,8 +11,8 @@ const styles = {
   mySlides: `w-[100%] h-[100%]`,
   slideImage: `rounded-[20px] max-h-[33vw] w-[100%]`,
   fade: ``,
-  prev: `cursor-pointer absolute top-[50%] w-[13px] h-[13px] mt-[-22px] p-[16px] text[rgba(107, 107, 107, 0.8)] font-bold text-[18px] transition duration-0.6 ease z-20 select-none flex justify-center items-center rounded-[50px] bg-transparent group-hover:bg-[#000000cc] group-hover:text-white left-[20px] hover:bg-[#000000cc] hover:text-white`,
-  next: `cursor-pointer absolute top-[50%] w-[13px] h-[13px] mt-[-22px] p-[16px] text[rgba(107, 107, 107, 0.8)] font-bold text-[18px] transition duration-0.6 ease z-20 select-none flex justify-center items-center rounded-[50px] bg-transparent group-hover:bg-[#000000cc] group-hover:text-white right-[20px] hover:bg-[#000000cc] hover:text-white`,
+  prev: `cursor-pointer absolute top-[50%] w-[13px] h-[13px] mt-[-22px] p-[16px] text[rgba(107, 107, 107, 0.8)] font-bold text-[18px] transition duration-0.6 ease z-10 select-none flex justify-center items-center rounded-[50px] bg-transparent group-hover:bg-[#000000cc] group-hover:text-white left-[20px] hover:bg-[#000000cc] hover:text-white`,
+  next: `cursor-pointer absolute top-[50%] w-[13px] h-[13px] mt-[-22px] p-[16px] text[rgba(107, 107, 107, 0.8)] font-bold text-[18px] transition duration-0.6 ease z-10 select-none flex justify-center items-center rounded-[50px] bg-transparent group-hover:bg-[#000000cc] group-hover:text-white right-[20px] hover:bg-[#000000cc] hover:text-white`,
   allDots: ``,
   active: `cursor-pointer h-[15px] w-[15px] my-[10px] mx-[2px] bg-[#717171] rounded-[50%] inline-block transition ease-in-out duration-600`,
   dot: `cursor-pointer h-[15px] w-[15px] my-[10px] mx-[2px] bg-[#bbb] rounded-[50%] inline-block transition ease-in-out duration-600`,
@@ -27,7 +27,7 @@ const Slideshow = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setRenderCount((prevCount) => prevCount + 1);
-    }, 3000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
